@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sagar ❤️ Swati Wedding</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@600&family=Noto+Serif+Kannada&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+    margin:0;
+    font-family:'Cinzel', serif;
+    overflow:hidden;
+}
+
+/* LANDING */
+#landing {
+    height:100vh;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    color:white;
+}
+
+/* INVITATION */
+#invite {
+    display:none;
+    height:100vh;
+    background:#7a0000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* CARD */
+.card {
+    width:90vw;
+    max-width:350px;
+    height:550px;
+    border:4px solid gold;
+    background:radial-gradient(circle, #a00000, #4b0000);
+    text-align:center;
+    color:gold;
+    padding:20px;
+}
+
+/* GANESH */
+.ganesh {
+    width:100px;
+    margin-bottom:15px;
+}
+
+/* TEXT */
+.names {
+    font-family:'Great Vibes';
+    font-size:40px;
+}
+
+/* GANESH SCREEN */
+#ganeshScreen {
+    position:fixed;
+    inset:0;
+    background:black;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    color:white;
+}
+
+/* FLOWERS */
+.flower {
+    position:absolute;
+    top:-20px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall {
+    to { transform:translateY(100vh) rotate(360deg); }
+}
+
+button {
+    padding:12px 25px;
+    background:maroon;
+    color:gold;
+    border:2px solid gold;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LANDING -->
+<div id="landing">
+    <h1 style="font-family:Great Vibes; font-size:60px;">Sagar ❤️ Swati</h1>
+    <button onclick="openInvite()">Open Invitation</button>
+</div>
+
+<!-- GANESH -->
+<div id="ganeshScreen">
+    <img src="https://png.pngtree.com/png-clipart/20250104/original/pngtree-golden-face-of-lord-ganesha-png-image_18711666.png" class="ganesh">
+    <h2>॥ ಶ್ರೀ ಗಣೇಶಾಯ ನಮಃ ॥</h2>
+</div>
+
+<!-- INVITATION -->
+<div id="invite">
+    <div class="card">
+
+        <img src="https://png.pngtree.com/png-clipart/20250104/original/pngtree-golden-face-of-lord-ganesha-png-image_18711666.png" class="ganesh">
+
+        <h2>Wedding Invitation</h2>
+
+        <h2 class="names">Sagar</h2>
+        <p>&</p>
+        <h2 class="names">Swati</h2>
+
+        <p>📍 Amminabhavi</p>
+        <p>📅 Coming Soon</p>
+
+    </div>
+</div>
+
+<script>
+
+function openInvite(){
+
+    document.getElementById("landing").style.display="none";
+
+    let g=document.getElementById("ganeshScreen");
+    g.style.display="flex";
+
+    // flowers
+    for(let i=0;i<20;i++){
+        let f=document.createElement("div");
+        f.innerHTML="🌸";
+        f.className="flower";
+        f.style.left=Math.random()*100+"vw";
+        f.style.animationDuration=(Math.random()*3+2)+"s";
+        g.appendChild(f);
+    }
+
+    setTimeout(()=>{
+        g.style.display="none";
+        document.getElementById("invite").style.display="flex";
+    },3000);
+}
+
+</script>
+
+</body>
+</html>
